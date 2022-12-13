@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { HeroesService, IHeroe} from '../../services/heroes.services'
+import { HeroesService, IHeroe } from '../../services/heroes.services';
 
 @Component({
   selector: 'app-heroe',
@@ -9,7 +9,7 @@ import { HeroesService, IHeroe} from '../../services/heroes.services'
 })
 export class HeroeComponent implements OnInit {
 
-  heroe:any = {}
+  heroe:any = {};
 
   constructor( private _activatedRoute: ActivatedRoute,
                private _heroesService: HeroesService,

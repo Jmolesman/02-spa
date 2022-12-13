@@ -69,6 +69,35 @@ export class HeroesService {
     getHeroe(id:number):IHeroe{
       return this.heroesList[id]; 
     }
+
+    getHeroeID (name: string):number {
+      let id: number = -1;
+      name = name.toLowerCase();
+      this.heroesList.forEach((heroe,arrayPos) => {
+
+        let nombre = heroe.nombre.toLowerCase();
+
+        if (nombre.indexOf(name) >=0 ){
+          id = arrayPos;
+        }
+      });
+      return id;
+    }
+
+    searchHeroes( termino: string ): IHeroe[] {
+      let heroesArray:IHeroe[] = [];
+
+      termino = termino.toLowerCase();
+
+      for (let heroe of this.heroesList){
+        let nombre = heroe.nombre.toLowerCase();
+
+        if (nombre.indexOf(termino) >=0 ){
+          heroesArray.push(heroe);
+        }
+      }
+      return heroesArray;
+    }
 }
 
 export interface IHeroe{
