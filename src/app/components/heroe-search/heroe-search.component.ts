@@ -23,8 +23,9 @@ export class HeroeSearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  verHeroe(name:string){
-    let id = this._heroeService.getHeroeID(name);
-    this._router.navigate(['/heroe',id]);
-  }
+  //Se saca se usa la funcionabilidad desde la tarjeta
+  // verHeroe(name:string){
+  //   let id = this._heroeService.getHeroeID(name);
+  //   this._router.navigate(['/heroe',id]);
+  // }
 }

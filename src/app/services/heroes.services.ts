@@ -70,29 +70,48 @@ export class HeroesService {
       return this.heroesList[id]; 
     }
 
-    getHeroeID (name: string):number {
-      let id: number = -1;
-      name = name.toLowerCase();
-      this.heroesList.forEach((heroe,arrayPos) => {
+    // getHeroeID (name: string):number {
+    //   let id: number = -1;
+    //   name = name.toLowerCase();
+    //   this.heroesList.forEach((heroe,arrayPos) => {
 
-        let nombre = heroe.nombre.toLowerCase();
+    //     let nombre = heroe.nombre.toLowerCase();
 
-        if (nombre.indexOf(name) >=0 ){
-          id = arrayPos;
-        }
-      });
-      return id;
-    }
+    //     if (nombre.indexOf(name) >=0 ){
+    //       id = arrayPos;
+    //     }
+    //   });
+    //   return id;
+    // }
 
+    // searchHeroes( termino: string ): IHeroe[] {
+    //   let heroesArray:IHeroe[] = [];
+
+    //   termino = termino.toLowerCase();
+
+    //   for (let heroe of this.heroesList){
+    //     let nombre = heroe.nombre.toLowerCase();
+
+    //     if (nombre.indexOf(termino) >=0 ){
+
+    //       heroesArray.push(heroe);
+    //     }
+    //   }
+    //   return heroesArray;
+    // }
+
+    //Se hace el cambio para agregar el ID a la lista de Heroes
     searchHeroes( termino: string ): IHeroe[] {
       let heroesArray:IHeroe[] = [];
 
       termino = termino.toLowerCase();
 
-      for (let heroe of this.heroesList){
+      for (let i=0; i< this.heroesList.length; i++){
+        let heroe = this.heroesList[i];
         let nombre = heroe.nombre.toLowerCase();
 
         if (nombre.indexOf(termino) >=0 ){
+          heroe.id = i;
           heroesArray.push(heroe);
         }
       }
@@ -106,4 +125,5 @@ export interface IHeroe{
     img: string;
     aparicion: string;
     casa: string;
+    id?: number;
 }

@@ -17,8 +17,9 @@ export class HeroesComponent implements OnInit {
     this.heroes = this._heroesService.getHeroes();
   }
 
-  verHeroe(id:Number){
-    this._router.navigate(['/heroe',id]);
-  }
+  // Se saca porque se agrego el id al array ahora la redireccion la maneja la tarjeta
+  // verHeroe(id: number){
+  //   this._router.navigate(['/heroe',id]);
+  // }
 
 }

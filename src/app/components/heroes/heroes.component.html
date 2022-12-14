@@ -1,16 +1,11 @@
 <h1>Heroes Marvel y DC</h1>
 <hr>
 <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col" *ngFor="let heroe of heroes; let i = index">
-        <div class="card animated fadeIn fast" >
-            <img src="{{ heroe.img }}" class="card-img-top" alt="{{ heroe.nombre }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ heroe.nombre }}</h5>
-                <p class="card-text">{{ heroe.bio }}</p>
-                <p class="card-text"><small class="text-muted">{{ heroe.aparicion }}</small></p>
-            </div>
-            <button (click)="verHeroe(i)" class="btn btn-outline-primary m-2">Ver más...</button>
-            <!-- <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary ml-2">Ver más...</a> -->
-        </div>
+    <!-- <div class="col" *ngFor="let heroe of heroes; let i = index">
+        <app-heroe-tarjeta (selectedHeroe)="verHeroe($event)"  [heroe]="heroe" [index]="i"></app-heroe-tarjeta>
+    </div> -->
+    <!-- Se cambia porque se agrego el id a la lista de heroes -->
+    <div class="col" *ngFor="let heroe of heroes">
+        <app-heroe-tarjeta [heroe]="heroe" [index]="heroe.id"></app-heroe-tarjeta>
     </div>
 </div>  
